@@ -1,0 +1,84 @@
+---
+title: "Practical Exam"
+author: "Luigi Echaveria"
+date: "2024-03-07"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#A.
+#1. Find out, in a single command, which columns of warpbreaks are either numeric or integer.
+```{r}
+warpbreaks
+
+numeric_columns <- sapply(warpbreaks, is.numeric)
+integer_columns <- sapply(warpbreaks, is.integer)
+```
+
+#2. How many observations does it have?
+```{r}
+nrow(warpbreaks)
+```
+
+#3. Is numeric a natural data type for the columns which are stored as such? Convert to integer when necessary.
+```{r}
+numeric <- as.integer(warpbreaks$breaks)
+```
+
+#4. Error messages in R sometimes report the underlying type of an object rather than the user-level class. Derive from the following code and error message what the underlying type.
+```{r}
+x <- c("1", "2", "3", "4")
+x <- as.numeric(x)
+y <- x + 1
+```
+#Error message:
+#Error in x + 1 : non-numeric argument to binary operator
+
+
+#B
+#1. Read the complete file using readLines.
+```{r}
+ReadExample <- readLines("exampleFile.txt")
+ReadExample
+```
+
+#2. Separate the vector of lines into a vector containing comments and a vector containing the data.
+```{r}
+comments <- grepl("^#", ReadExample) 
+comments_vec <- ReadExample[comments] 
+data_vec <- ReadExample[!comments]
+
+cat("Comments:\n")
+print(comments_vec)
+cat("\nData:\n")
+print(data_vec)
+```
+
+#3. Extract the date from the first comment line and display on the screen “It was created data.”
+```{r}
+
+```
+
+#4. Read the data into a matrix as follows.
+#a. Split the character vectors in the vector containing data lines by semicolon (;) using strsplit.
+```{r}
+
+```
+
+#b. Find the maximum number of fields retrieved by split. Append rows that are shorter with NA's.
+```{r}
+
+```
+
+#c. Use unlist and matrix to transform the data to row-column format.
+```{r}
+
+```
+
+#d. From comment lines 2-4, extract the names of the fields. Set these as colnames for the matrix you just created.
+```{r}
+
+```
