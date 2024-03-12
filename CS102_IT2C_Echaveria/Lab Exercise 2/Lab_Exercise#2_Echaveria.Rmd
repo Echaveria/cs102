@@ -51,10 +51,9 @@ for (page in 1:5) {
   
   #Sys.sleep(1)
 }
-
 View(movie1)
-
 ```
+
 
 ```{r}
 library(dplyr)
@@ -96,8 +95,8 @@ for (page in 1:5) {
 }
 
 View(movie2)
-
 ```
+
 
 ```{r}
 library(dplyr)
@@ -2174,4 +2173,6 @@ allMovies <- rbind(allMovies, movie1, movie2, movie3, movie4, movie5, movie6, mo
 
 #View(allMovies)
 
+write.csv(allMovies, "All Reviews.csv")
 ```
+
