@@ -1,0 +1,500 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={LAB-EXERCISE-3-ECHAVERIA},
+  pdfauthor={Luigi Echaveria},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{LAB-EXERCISE-3-ECHAVERIA}
+\author{Luigi Echaveria}
+\date{2024-03-16}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("dplyr")}
+\CommentTok{\#install.packages("rvest")}
+\CommentTok{\#install.packages("polite")}
+\CommentTok{\#install.packages("httr")}
+
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rvest)}
+\FunctionTok{library}\NormalTok{(polite)}
+\FunctionTok{library}\NormalTok{(httr)}
+
+
+\NormalTok{reviews }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{()}
+
+\NormalTok{link }\OtherTok{\textless{}{-}} \StringTok{"https://www.imdb.com/title/tt0068646/reviews?ref\_=tt\_urv"}
+\NormalTok{session }\OtherTok{\textless{}{-}} \FunctionTok{bow}\NormalTok{(link, }\AttributeTok{user\_agent =} \StringTok{"Educational Purpose"}\NormalTok{)}
+
+\NormalTok{scrapeNodes }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(selector) \{}
+  \FunctionTok{scrape}\NormalTok{(session) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{html\_nodes}\NormalTok{(selector) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{html\_text}\NormalTok{(}\AttributeTok{trim =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{titleMovie }\OtherTok{\textless{}{-}} \FunctionTok{scrapeNodes}\NormalTok{(}\StringTok{"a.subnav\_heading"}\NormalTok{)}
+\NormalTok{reviewer }\OtherTok{\textless{}{-}} \FunctionTok{scrapeNodes}\NormalTok{(}\StringTok{"span.display{-}name{-}link"}\NormalTok{)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]}
+\NormalTok{scrapedDate }\OtherTok{\textless{}{-}} \FunctionTok{scrapeNodes}\NormalTok{(}\StringTok{"span.review{-}date"}\NormalTok{)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]}
+\NormalTok{scrapedRating }\OtherTok{\textless{}{-}} \FunctionTok{scrapeNodes}\NormalTok{(}\StringTok{"span.rating{-}other{-}user{-}rating"}\NormalTok{)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]}
+\NormalTok{scrapedReview }\OtherTok{\textless{}{-}} \FunctionTok{scrapeNodes}\NormalTok{(}\StringTok{"div.text.show{-}more\_\_control"}\NormalTok{)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]}
+\NormalTok{scrapedTitleReview }\OtherTok{\textless{}{-}} \FunctionTok{scrapeNodes}\NormalTok{(}\StringTok{"a.title"}\NormalTok{)[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{]}
+
+\NormalTok{reviews }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(reviews, }\FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{movie\_title =} \FunctionTok{rep}\NormalTok{(titleMovie, }\DecValTok{10}\NormalTok{),}
+  \AttributeTok{reviewer\_name =}\NormalTok{ reviewer,}
+  \AttributeTok{review\_date =}\NormalTok{ scrapedDate,}
+  \AttributeTok{review\_rating =}\NormalTok{ scrapedRating,}
+  \AttributeTok{review\_content =}\NormalTok{ scrapedReview,}
+  \AttributeTok{review\_title =}\NormalTok{ scrapedTitleReview}
+\NormalTok{))}
+
+\FunctionTok{View}\NormalTok{(reviews)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{creating-connections}{%
+\subsubsection{CREATING CONNECTIONS}\label{creating-connections}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr,dbplyr)}
+\FunctionTok{library}\NormalTok{(RMySQL)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: DBI
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#creating connections}
+\NormalTok{connection }\OtherTok{\textless{}{-}} \FunctionTok{dbConnect}\NormalTok{(RMySQL}\SpecialCharTok{::}\FunctionTok{MySQL}\NormalTok{(),}
+                        \AttributeTok{dsn=}\StringTok{"MariaDB{-}connection"}\NormalTok{,}
+                        \AttributeTok{Server =} \StringTok{"localhost"}\NormalTok{,}
+                        \AttributeTok{dbname =} \StringTok{"2c\_echaveria"}\NormalTok{, }
+                        \AttributeTok{user =} \StringTok{"root"}\NormalTok{, }
+                        \AttributeTok{password =} \StringTok{""}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{listing-tables-and-fields}{%
+\subsubsection{LISTING TABLES AND
+FIELDS}\label{listing-tables-and-fields}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dbListTables}\NormalTok{(connection)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "reviews"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dbListFields}\NormalTok{(connection,}\StringTok{"reviews"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "id"             "movie_title"    "reviewer_name"  "review_date"   
+## [5] "review_rating"  "review_content" "review_title"
+\end{verbatim}
+
+\hypertarget{reading-data-from-database}{%
+\subsubsection{READING DATA FROM
+DATABASE}\label{reading-data-from-database}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{review\_data }\OtherTok{\textless{}{-}} \FunctionTok{dbGetQuery}\NormalTok{(connection, }\StringTok{"SELECT * FROM 2c\_echaveria.reviews"}\NormalTok{)}
+
+\FunctionTok{glimpse}\NormalTok{(review\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 50
+## Columns: 7
+## $ id             <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, ~
+## $ movie_title    <chr> "The Godfather", "The Godfather", "The Godfather", "The~
+## $ reviewer_name  <chr> "CalRhys", "andrewburgereviews", "Sleepin_Dragon", "gog~
+## $ review_date    <chr> "20 June 2014", "1 April 2019", "6 February 2021", "11 ~
+## $ review_rating  <chr> "10/10", "10/10", "10/10", "10/10", "10/10", "10/10", "~
+## $ review_content <chr> "'The Godfather' is the pinnacle of flawless films! The~
+## $ review_title   <chr> "The Pinnacle Of Flawless Films!", "An offer so good, I~
+\end{verbatim}
+
+\hypertarget{inserting-reviews-to-database}{%
+\subsubsection{INSERTING REVIEWS TO
+DATABASE}\label{inserting-reviews-to-database}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\# use the gsub function to replace all single quotes in the review\_content and review\_title columns with two single quotes (\textquotesingle{}\textquotesingle{}). }
+\DocumentationTok{\#\# This will ensure that any single quotes in the text are properly escaped in the SQL query.}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(reviews)) \{}
+\NormalTok{    query }\OtherTok{\textless{}{-}} \FunctionTok{paste0}\NormalTok{(}\StringTok{"INSERT INTO reviews (movie\_title, reviewer\_name, review\_date, review\_rating, review\_content, review\_title) }
+\StringTok{                  VALUES (\textquotesingle{}"}\NormalTok{, reviews}\SpecialCharTok{$}\NormalTok{movie\_title[i],}\StringTok{"\textquotesingle{},\textquotesingle{}"}\NormalTok{, reviews}\SpecialCharTok{$}\NormalTok{reviewer\_name[i], }\StringTok{"\textquotesingle{},\textquotesingle{}"}\NormalTok{, reviews}\SpecialCharTok{$}\NormalTok{review\_date[i],}\StringTok{"\textquotesingle{},\textquotesingle{}"}\NormalTok{, reviews}\SpecialCharTok{$}\NormalTok{review\_rating[i], }\StringTok{"\textquotesingle{},\textquotesingle{}"}\NormalTok{,}
+                  \FunctionTok{gsub}\NormalTok{(}\StringTok{"\textquotesingle{}"}\NormalTok{,}\StringTok{"\textquotesingle{}\textquotesingle{}"}\NormalTok{, reviews}\SpecialCharTok{$}\NormalTok{review\_content[i]), }\StringTok{"\textquotesingle{},\textquotesingle{}"}\NormalTok{, }\FunctionTok{gsub}\NormalTok{(}\StringTok{"\textquotesingle{}"}\NormalTok{,}\StringTok{"\textquotesingle{}\textquotesingle{}"}\NormalTok{, reviews}\SpecialCharTok{$}\NormalTok{review\_title[i]), }\StringTok{"\textquotesingle{})"}\NormalTok{)}
+  
+  \CommentTok{\# execute query}
+\NormalTok{  query\_result }\OtherTok{\textless{}{-}} \FunctionTok{dbSendQuery}\NormalTok{(connection, query)}
+  
+  \CommentTok{\# clear result after executing query}
+  \FunctionTok{dbClearResult}\NormalTok{(query\_result)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{read-and-view-inserted-data}{%
+\subsubsection{READ AND VIEW INSERTED
+DATA}\label{read-and-view-inserted-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{review\_data }\OtherTok{\textless{}{-}} \FunctionTok{dbGetQuery}\NormalTok{(connection, }\StringTok{"SELECT * FROM 2c\_echaveria.reviews"}\NormalTok{)}
+
+
+\CommentTok{\# VIEW REVIEWS without primary key "id"}
+\NormalTok{review\_data[,}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\SpecialCharTok{:}\DecValTok{7}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      movie_title      reviewer_name      review_date review_rating
+## 1  The Godfather            CalRhys     20 June 2014         10/10
+## 2  The Godfather andrewburgereviews     1 April 2019         10/10
+## 3  The Godfather     Sleepin_Dragon  6 February 2021         10/10
+## 4  The Godfather        gogoschka-1 11 February 2018         10/10
+## 5  The Godfather                 0U 23 February 2020         10/10
+## 6  The Godfather   alexkolokotronis     21 June 2008         10/10
+## 7  The Godfather        b-a-h TNT-6     5 March 2002         10/10
+## 8  The Godfather      planktonrules    30 March 2013         10/10
+## 9  The Godfather  TheLittleSongbird     18 July 2010         10/10
+## 10 The Godfather        mattrochman  14 October 2006         10/10
+## 11 The Godfather            CalRhys     20 June 2014         10/10
+## 12 The Godfather andrewburgereviews     1 April 2019         10/10
+## 13 The Godfather     Sleepin_Dragon  6 February 2021         10/10
+## 14 The Godfather        gogoschka-1 11 February 2018         10/10
+## 15 The Godfather                 0U 23 February 2020         10/10
+## 16 The Godfather   alexkolokotronis     21 June 2008         10/10
+## 17 The Godfather        b-a-h TNT-6     5 March 2002         10/10
+## 18 The Godfather      planktonrules    30 March 2013         10/10
+## 19 The Godfather  TheLittleSongbird     18 July 2010         10/10
+## 20 The Godfather        mattrochman  14 October 2006         10/10
+## 21 The Godfather            CalRhys     20 June 2014         10/10
+## 22 The Godfather andrewburgereviews     1 April 2019         10/10
+## 23 The Godfather     Sleepin_Dragon  6 February 2021         10/10
+## 24 The Godfather        gogoschka-1 11 February 2018         10/10
+## 25 The Godfather                 0U 23 February 2020         10/10
+## 26 The Godfather   alexkolokotronis     21 June 2008         10/10
+## 27 The Godfather        b-a-h TNT-6     5 March 2002         10/10
+## 28 The Godfather      planktonrules    30 March 2013         10/10
+## 29 The Godfather  TheLittleSongbird     18 July 2010         10/10
+## 30 The Godfather        mattrochman  14 October 2006         10/10
+## 31 The Godfather            CalRhys     20 June 2014         10/10
+## 32 The Godfather andrewburgereviews     1 April 2019         10/10
+## 33 The Godfather     Sleepin_Dragon  6 February 2021         10/10
+## 34 The Godfather        gogoschka-1 11 February 2018         10/10
+## 35 The Godfather                 0U 23 February 2020         10/10
+## 36 The Godfather   alexkolokotronis     21 June 2008         10/10
+## 37 The Godfather        b-a-h TNT-6     5 March 2002         10/10
+## 38 The Godfather      planktonrules    30 March 2013         10/10
+## 39 The Godfather  TheLittleSongbird     18 July 2010         10/10
+## 40 The Godfather        mattrochman  14 October 2006         10/10
+## 41 The Godfather            CalRhys     20 June 2014         10/10
+## 42 The Godfather andrewburgereviews     1 April 2019         10/10
+## 43 The Godfather     Sleepin_Dragon  6 February 2021         10/10
+## 44 The Godfather        gogoschka-1 11 February 2018         10/10
+## 45 The Godfather                 0U 23 February 2020         10/10
+## 46 The Godfather   alexkolokotronis     21 June 2008         10/10
+## 47 The Godfather        b-a-h TNT-6     5 March 2002         10/10
+## 48 The Godfather      planktonrules    30 March 2013         10/10
+## 49 The Godfather  TheLittleSongbird     18 July 2010         10/10
+## 50 The Godfather        mattrochman  14 October 2006         10/10
+## 51 The Godfather            CalRhys     20 June 2014         10/10
+## 52 The Godfather andrewburgereviews     1 April 2019         10/10
+## 53 The Godfather     Sleepin_Dragon  6 February 2021         10/10
+## 54 The Godfather        gogoschka-1 11 February 2018         10/10
+## 55 The Godfather                 0U 23 February 2020         10/10
+## 56 The Godfather   alexkolokotronis     21 June 2008         10/10
+## 57 The Godfather        b-a-h TNT-6     5 March 2002         10/10
+## 58 The Godfather      planktonrules    30 March 2013         10/10
+## 59 The Godfather  TheLittleSongbird     18 July 2010         10/10
+## 60 The Godfather        mattrochman  14 October 2006         10/10
+##                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          review_content
+## 1  'The Godfather' is the pinnacle of flawless films! The first time I viewed 'The Godfather' I was in my early teens and it was the most astounding film I had ever seen, and has since then stood as my all-time favourite film. It is due to this that I have been looking forward to writing a review of this unforgettable classic. So let's start from the beginning. The film opens to four words, 'I believe in America', it's crazy to think that this simple line has become a resonant quote solely due to t
+## 2  It is now past 1 PM and I just finished watching Francis Ford Coppola's "The Godfather". I should probably go to bed. It's late and tomorrow I have to wake up a bit early. But not early enough to postpone writing these lines. Now that I have seen it three times, the opportunity of sharing my thoughts and refreshed insights are too much of a good offer to sit on. So, bear with me.This film works so well because it takes place in an underworld in which we are so embedded that we do not even observ
+## 3  A masterclass in film making, is The Godfather a contender for the best film of all time? I'd argue the case that it is, this is the ultimate gangster movie.Before you panic at the thought of a film being almost three hours long, you needn't, you won't even notice the time, it flies by.Production values are incredible, it looks sublime the whole way through, it's so well produced, at roughly fifty years old it puts many new films to shame.Brandon, Pacino and Castellano, just a few of the Incredi
+## 4                                                                                This isn't just a beautifully crafted gangster film. Or an outstanding family portrait, for that matter. An amazing period piece. A character study. A lesson in filmmaking and an inspiration to generations of actors, directors, screenwriters and producers. For me, this is more: this is the definitive film. 10 stars out of 10.Favorite films: IMDb.com/list/mkjOKvqlSBs/Lesser-Known Masterpieces: imdb.com/list/ls070242495/
+## 5                                                                                                                                                                                                                                                                                                                                                             One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.
+## 6  Tell me a movie that is more famous than this. Tell me a movie that has had more parodies spinned off its storyline than this. Tell me one movie that has been as quoted as a much as this. The answer is you can't. No movie has had as much of an impact as The Godfather has had ever since it was released.The acting was simply amazing, what else could you say. What could be more appealing to people(even today) than watching actors like Al Pacino, Marlon Brando, James Caan, Diane Keaton, Talia Shire 
+## 7  The Godfather is one of the few films in which I personally did not find any significant weakness even after many viewings. From the direction, to the acting, to the storyline, to the score, The Godfather has the word classic written all over, and it really is not much of a surprise that it is now considered by many one of the top five movies of all time. Perhaps when it comes to cinematic techniques The Godfather has not been as revolutionary as Citizen Kane, but its influence on motion picture
+## 8  Up until today, I haven't bothered to review "The Godfather". After all, everyone pretty much knows it's one of the greatest films ever made. It's #2 on IMDb's Top 100. It won the Best Picture Oscar. And, there are nearly 1600 reviews on IMDb. So what's one more review?! Well, after completing 14,000 reviews (because I am nuts), I guess it's time I got around to reviewing a film I should have reviewed a long time ago. So, here goes....the film is perfect and only a dope wouldn't watch it. Unfort
+## 9  There is very little that I can add to the reviews on here, that have explained what is so wonderful about The Godfather so well. I have seen many amazing movies, as well as some clunkers, but The Godfather was beyond amazing. There are so many images, details and scenes that I seriously cannot get out of my head since watching it for the first time just nine hours ago. The Godfather is so incredibly well-made and acted that it stands out among the rest of those other amazing films I've seen, so
+## 10 This is a masterpiece. A timeless masterpiece. Initially, I didn't like this film all that much - I found it rather over-hyped and boring. This was until the advent of DVD, which gave me the feature I needed for this sort of film: subtitles. Once I switched them on and heard (read) every last word of Brando's ramblings and other characters ramblings, I grew a true appreciation for this epic.To make a true epic, you need all of three following ingredients working in near perfect harmony. For scre
+## 11 'The Godfather' is the pinnacle of flawless films! The first time I viewed 'The Godfather' I was in my early teens and it was the most astounding film I had ever seen, and has since then stood as my all-time favourite film. It is due to this that I have been looking forward to writing a review of this unforgettable classic. So let's start from the beginning. The film opens to four words, 'I believe in America', it's crazy to think that this simple line has become a resonant quote solely due to t
+## 12 It is now past 1 PM and I just finished watching Francis Ford Coppola's "The Godfather". I should probably go to bed. It's late and tomorrow I have to wake up a bit early. But not early enough to postpone writing these lines. Now that I have seen it three times, the opportunity of sharing my thoughts and refreshed insights are too much of a good offer to sit on. So, bear with me.This film works so well because it takes place in an underworld in which we are so embedded that we do not even observ
+## 13 A masterclass in film making, is The Godfather a contender for the best film of all time? I'd argue the case that it is, this is the ultimate gangster movie.Before you panic at the thought of a film being almost three hours long, you needn't, you won't even notice the time, it flies by.Production values are incredible, it looks sublime the whole way through, it's so well produced, at roughly fifty years old it puts many new films to shame.Brandon, Pacino and Castellano, just a few of the Incredi
+## 14                                                                               This isn't just a beautifully crafted gangster film. Or an outstanding family portrait, for that matter. An amazing period piece. A character study. A lesson in filmmaking and an inspiration to generations of actors, directors, screenwriters and producers. For me, this is more: this is the definitive film. 10 stars out of 10.Favorite films: IMDb.com/list/mkjOKvqlSBs/Lesser-Known Masterpieces: imdb.com/list/ls070242495/
+## 15                                                                                                                                                                                                                                                                                                                                                            One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.
+## 16 Tell me a movie that is more famous than this. Tell me a movie that has had more parodies spinned off its storyline than this. Tell me one movie that has been as quoted as a much as this. The answer is you can't. No movie has had as much of an impact as The Godfather has had ever since it was released.The acting was simply amazing, what else could you say. What could be more appealing to people(even today) than watching actors like Al Pacino, Marlon Brando, James Caan, Diane Keaton, Talia Shire 
+## 17 The Godfather is one of the few films in which I personally did not find any significant weakness even after many viewings. From the direction, to the acting, to the storyline, to the score, The Godfather has the word classic written all over, and it really is not much of a surprise that it is now considered by many one of the top five movies of all time. Perhaps when it comes to cinematic techniques The Godfather has not been as revolutionary as Citizen Kane, but its influence on motion picture
+## 18 Up until today, I haven't bothered to review "The Godfather". After all, everyone pretty much knows it's one of the greatest films ever made. It's #2 on IMDb's Top 100. It won the Best Picture Oscar. And, there are nearly 1600 reviews on IMDb. So what's one more review?! Well, after completing 14,000 reviews (because I am nuts), I guess it's time I got around to reviewing a film I should have reviewed a long time ago. So, here goes....the film is perfect and only a dope wouldn't watch it. Unfort
+## 19 There is very little that I can add to the reviews on here, that have explained what is so wonderful about The Godfather so well. I have seen many amazing movies, as well as some clunkers, but The Godfather was beyond amazing. There are so many images, details and scenes that I seriously cannot get out of my head since watching it for the first time just nine hours ago. The Godfather is so incredibly well-made and acted that it stands out among the rest of those other amazing films I've seen, so
+## 20 This is a masterpiece. A timeless masterpiece. Initially, I didn't like this film all that much - I found it rather over-hyped and boring. This was until the advent of DVD, which gave me the feature I needed for this sort of film: subtitles. Once I switched them on and heard (read) every last word of Brando's ramblings and other characters ramblings, I grew a true appreciation for this epic.To make a true epic, you need all of three following ingredients working in near perfect harmony. For scre
+## 21 'The Godfather' is the pinnacle of flawless films! The first time I viewed 'The Godfather' I was in my early teens and it was the most astounding film I had ever seen, and has since then stood as my all-time favourite film. It is due to this that I have been looking forward to writing a review of this unforgettable classic. So let's start from the beginning. The film opens to four words, 'I believe in America', it's crazy to think that this simple line has become a resonant quote solely due to t
+## 22 It is now past 1 PM and I just finished watching Francis Ford Coppola's "The Godfather". I should probably go to bed. It's late and tomorrow I have to wake up a bit early. But not early enough to postpone writing these lines. Now that I have seen it three times, the opportunity of sharing my thoughts and refreshed insights are too much of a good offer to sit on. So, bear with me.This film works so well because it takes place in an underworld in which we are so embedded that we do not even observ
+## 23 A masterclass in film making, is The Godfather a contender for the best film of all time? I'd argue the case that it is, this is the ultimate gangster movie.Before you panic at the thought of a film being almost three hours long, you needn't, you won't even notice the time, it flies by.Production values are incredible, it looks sublime the whole way through, it's so well produced, at roughly fifty years old it puts many new films to shame.Brandon, Pacino and Castellano, just a few of the Incredi
+## 24                                                                               This isn't just a beautifully crafted gangster film. Or an outstanding family portrait, for that matter. An amazing period piece. A character study. A lesson in filmmaking and an inspiration to generations of actors, directors, screenwriters and producers. For me, this is more: this is the definitive film. 10 stars out of 10.Favorite films: IMDb.com/list/mkjOKvqlSBs/Lesser-Known Masterpieces: imdb.com/list/ls070242495/
+## 25                                                                                                                                                                                                                                                                                                                                                            One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.
+## 26 Tell me a movie that is more famous than this. Tell me a movie that has had more parodies spinned off its storyline than this. Tell me one movie that has been as quoted as a much as this. The answer is you can't. No movie has had as much of an impact as The Godfather has had ever since it was released.The acting was simply amazing, what else could you say. What could be more appealing to people(even today) than watching actors like Al Pacino, Marlon Brando, James Caan, Diane Keaton, Talia Shire 
+## 27 The Godfather is one of the few films in which I personally did not find any significant weakness even after many viewings. From the direction, to the acting, to the storyline, to the score, The Godfather has the word classic written all over, and it really is not much of a surprise that it is now considered by many one of the top five movies of all time. Perhaps when it comes to cinematic techniques The Godfather has not been as revolutionary as Citizen Kane, but its influence on motion picture
+## 28 Up until today, I haven't bothered to review "The Godfather". After all, everyone pretty much knows it's one of the greatest films ever made. It's #2 on IMDb's Top 100. It won the Best Picture Oscar. And, there are nearly 1600 reviews on IMDb. So what's one more review?! Well, after completing 14,000 reviews (because I am nuts), I guess it's time I got around to reviewing a film I should have reviewed a long time ago. So, here goes....the film is perfect and only a dope wouldn't watch it. Unfort
+## 29 There is very little that I can add to the reviews on here, that have explained what is so wonderful about The Godfather so well. I have seen many amazing movies, as well as some clunkers, but The Godfather was beyond amazing. There are so many images, details and scenes that I seriously cannot get out of my head since watching it for the first time just nine hours ago. The Godfather is so incredibly well-made and acted that it stands out among the rest of those other amazing films I've seen, so
+## 30 This is a masterpiece. A timeless masterpiece. Initially, I didn't like this film all that much - I found it rather over-hyped and boring. This was until the advent of DVD, which gave me the feature I needed for this sort of film: subtitles. Once I switched them on and heard (read) every last word of Brando's ramblings and other characters ramblings, I grew a true appreciation for this epic.To make a true epic, you need all of three following ingredients working in near perfect harmony. For scre
+## 31 'The Godfather' is the pinnacle of flawless films! The first time I viewed 'The Godfather' I was in my early teens and it was the most astounding film I had ever seen, and has since then stood as my all-time favourite film. It is due to this that I have been looking forward to writing a review of this unforgettable classic. So let's start from the beginning. The film opens to four words, 'I believe in America', it's crazy to think that this simple line has become a resonant quote solely due to t
+## 32 It is now past 1 PM and I just finished watching Francis Ford Coppola's "The Godfather". I should probably go to bed. It's late and tomorrow I have to wake up a bit early. But not early enough to postpone writing these lines. Now that I have seen it three times, the opportunity of sharing my thoughts and refreshed insights are too much of a good offer to sit on. So, bear with me.This film works so well because it takes place in an underworld in which we are so embedded that we do not even observ
+## 33 A masterclass in film making, is The Godfather a contender for the best film of all time? I'd argue the case that it is, this is the ultimate gangster movie.Before you panic at the thought of a film being almost three hours long, you needn't, you won't even notice the time, it flies by.Production values are incredible, it looks sublime the whole way through, it's so well produced, at roughly fifty years old it puts many new films to shame.Brandon, Pacino and Castellano, just a few of the Incredi
+## 34                                                                               This isn't just a beautifully crafted gangster film. Or an outstanding family portrait, for that matter. An amazing period piece. A character study. A lesson in filmmaking and an inspiration to generations of actors, directors, screenwriters and producers. For me, this is more: this is the definitive film. 10 stars out of 10.Favorite films: IMDb.com/list/mkjOKvqlSBs/Lesser-Known Masterpieces: imdb.com/list/ls070242495/
+## 35                                                                                                                                                                                                                                                                                                                                                            One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.
+## 36 Tell me a movie that is more famous than this. Tell me a movie that has had more parodies spinned off its storyline than this. Tell me one movie that has been as quoted as a much as this. The answer is you can't. No movie has had as much of an impact as The Godfather has had ever since it was released.The acting was simply amazing, what else could you say. What could be more appealing to people(even today) than watching actors like Al Pacino, Marlon Brando, James Caan, Diane Keaton, Talia Shire 
+## 37 The Godfather is one of the few films in which I personally did not find any significant weakness even after many viewings. From the direction, to the acting, to the storyline, to the score, The Godfather has the word classic written all over, and it really is not much of a surprise that it is now considered by many one of the top five movies of all time. Perhaps when it comes to cinematic techniques The Godfather has not been as revolutionary as Citizen Kane, but its influence on motion picture
+## 38 Up until today, I haven't bothered to review "The Godfather". After all, everyone pretty much knows it's one of the greatest films ever made. It's #2 on IMDb's Top 100. It won the Best Picture Oscar. And, there are nearly 1600 reviews on IMDb. So what's one more review?! Well, after completing 14,000 reviews (because I am nuts), I guess it's time I got around to reviewing a film I should have reviewed a long time ago. So, here goes....the film is perfect and only a dope wouldn't watch it. Unfort
+## 39 There is very little that I can add to the reviews on here, that have explained what is so wonderful about The Godfather so well. I have seen many amazing movies, as well as some clunkers, but The Godfather was beyond amazing. There are so many images, details and scenes that I seriously cannot get out of my head since watching it for the first time just nine hours ago. The Godfather is so incredibly well-made and acted that it stands out among the rest of those other amazing films I've seen, so
+## 40 This is a masterpiece. A timeless masterpiece. Initially, I didn't like this film all that much - I found it rather over-hyped and boring. This was until the advent of DVD, which gave me the feature I needed for this sort of film: subtitles. Once I switched them on and heard (read) every last word of Brando's ramblings and other characters ramblings, I grew a true appreciation for this epic.To make a true epic, you need all of three following ingredients working in near perfect harmony. For scre
+## 41 'The Godfather' is the pinnacle of flawless films! The first time I viewed 'The Godfather' I was in my early teens and it was the most astounding film I had ever seen, and has since then stood as my all-time favourite film. It is due to this that I have been looking forward to writing a review of this unforgettable classic. So let's start from the beginning. The film opens to four words, 'I believe in America', it's crazy to think that this simple line has become a resonant quote solely due to t
+## 42 It is now past 1 PM and I just finished watching Francis Ford Coppola's "The Godfather". I should probably go to bed. It's late and tomorrow I have to wake up a bit early. But not early enough to postpone writing these lines. Now that I have seen it three times, the opportunity of sharing my thoughts and refreshed insights are too much of a good offer to sit on. So, bear with me.This film works so well because it takes place in an underworld in which we are so embedded that we do not even observ
+## 43 A masterclass in film making, is The Godfather a contender for the best film of all time? I'd argue the case that it is, this is the ultimate gangster movie.Before you panic at the thought of a film being almost three hours long, you needn't, you won't even notice the time, it flies by.Production values are incredible, it looks sublime the whole way through, it's so well produced, at roughly fifty years old it puts many new films to shame.Brandon, Pacino and Castellano, just a few of the Incredi
+## 44                                                                               This isn't just a beautifully crafted gangster film. Or an outstanding family portrait, for that matter. An amazing period piece. A character study. A lesson in filmmaking and an inspiration to generations of actors, directors, screenwriters and producers. For me, this is more: this is the definitive film. 10 stars out of 10.Favorite films: IMDb.com/list/mkjOKvqlSBs/Lesser-Known Masterpieces: imdb.com/list/ls070242495/
+## 45                                                                                                                                                                                                                                                                                                                                                            One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.
+## 46 Tell me a movie that is more famous than this. Tell me a movie that has had more parodies spinned off its storyline than this. Tell me one movie that has been as quoted as a much as this. The answer is you can't. No movie has had as much of an impact as The Godfather has had ever since it was released.The acting was simply amazing, what else could you say. What could be more appealing to people(even today) than watching actors like Al Pacino, Marlon Brando, James Caan, Diane Keaton, Talia Shire 
+## 47 The Godfather is one of the few films in which I personally did not find any significant weakness even after many viewings. From the direction, to the acting, to the storyline, to the score, The Godfather has the word classic written all over, and it really is not much of a surprise that it is now considered by many one of the top five movies of all time. Perhaps when it comes to cinematic techniques The Godfather has not been as revolutionary as Citizen Kane, but its influence on motion picture
+## 48 Up until today, I haven't bothered to review "The Godfather". After all, everyone pretty much knows it's one of the greatest films ever made. It's #2 on IMDb's Top 100. It won the Best Picture Oscar. And, there are nearly 1600 reviews on IMDb. So what's one more review?! Well, after completing 14,000 reviews (because I am nuts), I guess it's time I got around to reviewing a film I should have reviewed a long time ago. So, here goes....the film is perfect and only a dope wouldn't watch it. Unfort
+## 49 There is very little that I can add to the reviews on here, that have explained what is so wonderful about The Godfather so well. I have seen many amazing movies, as well as some clunkers, but The Godfather was beyond amazing. There are so many images, details and scenes that I seriously cannot get out of my head since watching it for the first time just nine hours ago. The Godfather is so incredibly well-made and acted that it stands out among the rest of those other amazing films I've seen, so
+## 50 This is a masterpiece. A timeless masterpiece. Initially, I didn't like this film all that much - I found it rather over-hyped and boring. This was until the advent of DVD, which gave me the feature I needed for this sort of film: subtitles. Once I switched them on and heard (read) every last word of Brando's ramblings and other characters ramblings, I grew a true appreciation for this epic.To make a true epic, you need all of three following ingredients working in near perfect harmony. For scre
+## 51 'The Godfather' is the pinnacle of flawless films! The first time I viewed 'The Godfather' I was in my early teens and it was the most astounding film I had ever seen, and has since then stood as my all-time favourite film. It is due to this that I have been looking forward to writing a review of this unforgettable classic. So let's start from the beginning. The film opens to four words, 'I believe in America', it's crazy to think that this simple line has become a resonant quote solely due to t
+## 52 It is now past 1 PM and I just finished watching Francis Ford Coppola's "The Godfather". I should probably go to bed. It's late and tomorrow I have to wake up a bit early. But not early enough to postpone writing these lines. Now that I have seen it three times, the opportunity of sharing my thoughts and refreshed insights are too much of a good offer to sit on. So, bear with me.This film works so well because it takes place in an underworld in which we are so embedded that we do not even observ
+## 53 A masterclass in film making, is The Godfather a contender for the best film of all time? I'd argue the case that it is, this is the ultimate gangster movie.Before you panic at the thought of a film being almost three hours long, you needn't, you won't even notice the time, it flies by.Production values are incredible, it looks sublime the whole way through, it's so well produced, at roughly fifty years old it puts many new films to shame.Brandon, Pacino and Castellano, just a few of the Incredi
+## 54                                                                               This isn't just a beautifully crafted gangster film. Or an outstanding family portrait, for that matter. An amazing period piece. A character study. A lesson in filmmaking and an inspiration to generations of actors, directors, screenwriters and producers. For me, this is more: this is the definitive film. 10 stars out of 10.Favorite films: IMDb.com/list/mkjOKvqlSBs/Lesser-Known Masterpieces: imdb.com/list/ls070242495/
+## 55                                                                                                                                                                                                                                                                                                                                                            One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.
+## 56 Tell me a movie that is more famous than this. Tell me a movie that has had more parodies spinned off its storyline than this. Tell me one movie that has been as quoted as a much as this. The answer is you can't. No movie has had as much of an impact as The Godfather has had ever since it was released.The acting was simply amazing, what else could you say. What could be more appealing to people(even today) than watching actors like Al Pacino, Marlon Brando, James Caan, Diane Keaton, Talia Shire 
+## 57 The Godfather is one of the few films in which I personally did not find any significant weakness even after many viewings. From the direction, to the acting, to the storyline, to the score, The Godfather has the word classic written all over, and it really is not much of a surprise that it is now considered by many one of the top five movies of all time. Perhaps when it comes to cinematic techniques The Godfather has not been as revolutionary as Citizen Kane, but its influence on motion picture
+## 58 Up until today, I haven't bothered to review "The Godfather". After all, everyone pretty much knows it's one of the greatest films ever made. It's #2 on IMDb's Top 100. It won the Best Picture Oscar. And, there are nearly 1600 reviews on IMDb. So what's one more review?! Well, after completing 14,000 reviews (because I am nuts), I guess it's time I got around to reviewing a film I should have reviewed a long time ago. So, here goes....the film is perfect and only a dope wouldn't watch it. Unfort
+## 59 There is very little that I can add to the reviews on here, that have explained what is so wonderful about The Godfather so well. I have seen many amazing movies, as well as some clunkers, but The Godfather was beyond amazing. There are so many images, details and scenes that I seriously cannot get out of my head since watching it for the first time just nine hours ago. The Godfather is so incredibly well-made and acted that it stands out among the rest of those other amazing films I've seen, so
+## 60 This is a masterpiece. A timeless masterpiece. Initially, I didn't like this film all that much - I found it rather over-hyped and boring. This was until the advent of DVD, which gave me the feature I needed for this sort of film: subtitles. Once I switched them on and heard (read) every last word of Brando's ramblings and other characters ramblings, I grew a true appreciation for this epic.To make a true epic, you need all of three following ingredients working in near perfect harmony. For scre
+##                                                                                            review_title
+## 1                                                                       The Pinnacle Of Flawless Films!
+## 2                                                                   An offer so good, I couldn't refuse
+## 3                                                                          One of the best of all time.
+## 4                                                                   For Me, This Is The Definitive Film
+## 5                                                                       The greatest movie of all time!
+## 6                                                                                        An Iconic Film
+## 7                                                                        Another kind of "family movie"
+## 8  #2 on IMDb's Top 100, a multi-Oscar-winner and over 1500 reviews...what more can I say about the mov
+## 9                                            I'm finding it hard to describe how amazing this movie was
+## 10                                                     Initially, I wasn't a fan... but then I realised
+## 11                                                                      The Pinnacle Of Flawless Films!
+## 12                                                                  An offer so good, I couldn't refuse
+## 13                                                                         One of the best of all time.
+## 14                                                                  For Me, This Is The Definitive Film
+## 15                                                                      The greatest movie of all time!
+## 16                                                                                       An Iconic Film
+## 17                                                                       Another kind of "family movie"
+## 18 #2 on IMDb's Top 100, a multi-Oscar-winner and over 1500 reviews...what more can I say about the mov
+## 19                                           I'm finding it hard to describe how amazing this movie was
+## 20                                                     Initially, I wasn't a fan... but then I realised
+## 21                                                                      The Pinnacle Of Flawless Films!
+## 22                                                                  An offer so good, I couldn't refuse
+## 23                                                                         One of the best of all time.
+## 24                                                                  For Me, This Is The Definitive Film
+## 25                                                                      The greatest movie of all time!
+## 26                                                                                       An Iconic Film
+## 27                                                                       Another kind of "family movie"
+## 28 #2 on IMDb's Top 100, a multi-Oscar-winner and over 1500 reviews...what more can I say about the mov
+## 29                                           I'm finding it hard to describe how amazing this movie was
+## 30                                                     Initially, I wasn't a fan... but then I realised
+## 31                                                                      The Pinnacle Of Flawless Films!
+## 32                                                                  An offer so good, I couldn't refuse
+## 33                                                                         One of the best of all time.
+## 34                                                                  For Me, This Is The Definitive Film
+## 35                                                                      The greatest movie of all time!
+## 36                                                                                       An Iconic Film
+## 37                                                                       Another kind of "family movie"
+## 38 #2 on IMDb's Top 100, a multi-Oscar-winner and over 1500 reviews...what more can I say about the mov
+## 39                                           I'm finding it hard to describe how amazing this movie was
+## 40                                                     Initially, I wasn't a fan... but then I realised
+## 41                                                                      The Pinnacle Of Flawless Films!
+## 42                                                                  An offer so good, I couldn't refuse
+## 43                                                                         One of the best of all time.
+## 44                                                                  For Me, This Is The Definitive Film
+## 45                                                                      The greatest movie of all time!
+## 46                                                                                       An Iconic Film
+## 47                                                                       Another kind of "family movie"
+## 48 #2 on IMDb's Top 100, a multi-Oscar-winner and over 1500 reviews...what more can I say about the mov
+## 49                                           I'm finding it hard to describe how amazing this movie was
+## 50                                                     Initially, I wasn't a fan... but then I realised
+## 51                                                                      The Pinnacle Of Flawless Films!
+## 52                                                                  An offer so good, I couldn't refuse
+## 53                                                                         One of the best of all time.
+## 54                                                                  For Me, This Is The Definitive Film
+## 55                                                                      The greatest movie of all time!
+## 56                                                                                       An Iconic Film
+## 57                                                                       Another kind of "family movie"
+## 58 #2 on IMDb's Top 100, a multi-Oscar-winner and over 1500 reviews...what more can I say about the mov
+## 59                                           I'm finding it hard to describe how amazing this movie was
+## 60                                                     Initially, I wasn't a fan... but then I realised
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#View(review\_data[,c(2:7)])}
+
+\CommentTok{\# Export to csv}
+\FunctionTok{write.csv}\NormalTok{(review\_data[,}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\SpecialCharTok{:}\DecValTok{7}\NormalTok{)], }\StringTok{"review\_data.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Close the database connection}
+\FunctionTok{dbDisconnect}\NormalTok{(connection)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\end{document}
